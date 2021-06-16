@@ -43,7 +43,7 @@
 				$photo_name = $old_photo;
 			}else{
 				$data = fileUpload($_FILES['new_photo'], 'photos/');
-				$photo_name = $data = ['file_name'];
+				$photo_name = $data['file_name'];
 
 			}
 
