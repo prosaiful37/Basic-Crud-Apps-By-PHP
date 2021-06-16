@@ -1,7 +1,6 @@
 <?php require_once "app/db.php"; ?>
 <?php require_once "app/function.php"; ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +15,12 @@
 	
 	
 
-	<div class="wrap-table shadow">
+	<div class="wrap-table ">
 		<a class="btn btn-info btn-sm" href="index.php">add-new-student</a>
-		<div class="card">
-			<div class="card-body">
+		<div class="card bg-dark text-white">
+			<div class="card-body shadow">
 				<h2>All Data</h2>
-				<table class="table table-striped">
+				<table class="table table-striped bg-light">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -56,15 +55,13 @@
 							<td><?php echo $fdata['location']; ?></td>
 							<td><img src="photos/<?php echo $fdata['photo']; ?>" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-info" href="show.php?id=<?php echo $fdata['id']; ?>">View</a>
+								<a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $fdata['id']; ?>">Edit</a>
+								<a id="delete_item" class="btn btn-sm btn-danger" href="delete.php?id=<?php echo $fdata['id']; ?>">Delete</a>
 							</td>
 						</tr>
 
-						<?php 
-							endwhile;
-						?>
+						<?php endwhile; ?>
 						
 						
 
@@ -86,5 +83,22 @@
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+
+	<script>
+
+		$('a#delete_item').click(function(){
+			let val = confirm('Are you sure ?');
+
+			if (val == true) {
+				return true;
+			}else{
+				return false;
+			} 
+
+
+		});
+
+	</script>
+
 </body>
 </html>

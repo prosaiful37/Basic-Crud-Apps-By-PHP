@@ -24,6 +24,7 @@
 			$cell = $_POST['cell'];
 			$location = $_POST['location'];
 
+
 			
 
 			/**
@@ -31,8 +32,8 @@
 			 */
 			if (empty($name) || empty($email) || empty($cell) || empty($location) ) {
 				 $mess = "<p class='alert alert-danger'>All Filds Are required ! <button class='close' data-dismiss='alert'>&times;</button></p>";
-			}elseif (filter_var($email, FILTER_VALIDATE_EMAIL)==false) {
-				//$mess = "<p class='alert alert-info'> Invalid Email Formate ! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}else if(!filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+				$mess = "<p class='alert alert-info'> Invalid Email Formate ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}else{
 
 				$data = fileUpload($_FILES['photo'], 'photos/');
@@ -94,7 +95,7 @@
 						<input name="photo" class="form-control" type="file">
 					</div>
 					<div class="form-group">
-						<input name="add_student" class="btn btn-primary" type="submit" value="SignUp">
+						<input name="add_student" class="btn btn-primary" type="submit" value="Sign Up">
 					</div>
 				</form>
 			</div>

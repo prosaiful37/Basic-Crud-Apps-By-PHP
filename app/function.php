@@ -12,7 +12,7 @@
 	/**
 	 * file upload system
 	 */
-	function fileUpload($file, $location, $format = ['jpg','png', 'gif']){
+	function fileUpload($file, $location, $format = ['jpg','png', 'gif','jpeg']){
 		//file info
 		$file_name = $file['name'];
 		$file_tmp_name = $file['tmp_name'];
