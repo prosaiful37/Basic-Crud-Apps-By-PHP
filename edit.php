@@ -83,9 +83,9 @@
 
 
 
-	<div class="wrap shadow">
+	<div class="wrap ">
 		<a class="btn btn-info btn-sm" href="all-student.php">All-student</a>
-		<div class="card">
+		<div style="background-color: #E9EBF5;" class="card shadow">
 			<div class="card-body"> 
 				<!-- show all massge iseting -->
 					

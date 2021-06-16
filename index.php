@@ -60,6 +60,7 @@
 
 	<div class="wrap shadow">
 		<a class="btn btn-info btn-sm" href="all-student.php">All-student</a>
+		<a class="btn btn-warning btn-sm" href="Search.php">Data Search</a>
 		<div class="card">
 			<div class="card-body">
 				<h2>Add new student</h2>
@@ -102,7 +103,6 @@
 		</div>
 	</div>
 	
-
 
 
 

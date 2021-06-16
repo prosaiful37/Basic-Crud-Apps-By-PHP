@@ -16,14 +16,20 @@
 	
 
 	<div class="wrap-table ">
-		<a class="btn btn-info btn-sm" href="index.php">add-new-student</a>
+		<a class="btn btn-info btn-sm" href="all-student.php">all-student</a>
 		<div class="card bg-dark text-white">
 			<div class="card-body shadow">
-				<h2>All Data</h2>
+				<h2>Search Data</h2>
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+					<input name="search" type="text" placeholder="location/cell/email">
+					<input name="search_button" class="btn btn-info btn-sm" type="submit" value="search">
+				</form>
+				<br>
+				<br>
 				<table class="table table-striped bg-light">
 					<thead>
 						<tr>
-							<th>SL/No</th>
+							<th>#</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Cell</th>
@@ -36,9 +42,14 @@
 
 						<?php 
 
-							//select all data
-							$sql = "SELECT * FROM students LIMIT 7";
-							$data = $connection -> query($sql);
+							if (isset($_POST['search_button'])) {
+								$search = $_POST['search'];
+
+								$sql = "SELECT * FROM students WHERE location='$search' OR cell='$search' OR email='$search' ORDER BY id DESC";
+								$data = $connection -> query($sql);
+							}
+
+							if (isset($search) ) :
 
 							$i = 1;
 							while($fdata = $data -> fetch_assoc() ) :
@@ -61,7 +72,7 @@
 							</td>
 						</tr>
 
-						<?php endwhile; ?>
+						<?php endwhile; endif;?>
 						
 						
 
@@ -70,11 +81,6 @@
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	
-
 	
 
 
